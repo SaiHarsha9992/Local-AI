@@ -12,7 +12,7 @@ function App() {
     if (!question.trim()) return;
 
     try {
-      const res = await axios.post('http://localhost:8000/ask', {
+      const res = await axios.post('https://local-ai-qn7j.onrender.com/ask', {
         question,
         model,
         history, // optional: backend can use for follow-ups
