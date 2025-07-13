@@ -10,11 +10,15 @@ from langchain_community.llms import Ollama
 
 
 app = FastAPI()
+origins = [
+    "https://local-ai-seven.vercel.app",  # your Vercel frontend
+    "http://localhost:5173",              # optional, for local dev
+]
 
-# CORS: allow all (adjust as needed)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,       # ✅ list of domains
+    allow_credentials=True,      # ✅ good for future auth support
     allow_methods=["*"],
     allow_headers=["*"],
 )
